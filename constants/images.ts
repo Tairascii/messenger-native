@@ -1,0 +1,6 @@
+export const downloadApple =
+  'https://scontent.fala11-1.fna.fbcdn.net/v/t39.8562-6/119599245_978121086037976_8208486235252366867_n.svg?_nc_cat=101&ccb=1-7&_nc_sid=f537c7&_nc_ohc=hyUmygS7IwYQ7kNvwHmuFrp&_nc_oc=AdnPF67SyxcqcqnBURaO27lr0TGWlwNAhLR2mw19O975tB74utKGhvBqenEk69ksivY&_nc_zt=14&_nc_ht=scontent.fala11-1.fna&_nc_gid=n2_DX8P6UE6hy59HmqUUDw&oh=00_AfW5StiBhKVMK6c86Sio1jMCpiEnMQS8dv8Uzr9_EYR_ew&oe=68A13B91'
+export const downloadMS =
+  'https://scontent.fala3-2.fna.fbcdn.net/v/t39.8562-6/464845381_1070495111392058_4721916965659495303_n.png?_nc_cat=1&ccb=1-7&_nc_sid=f537c7&_nc_ohc=tHZSff3w-LIQ7kNvwHEAG5-&_nc_oc=AdlgdmoTd-PERU6-dT8N3K03uD1xCdOZ7r73Voknrtq38XwLij2YiQxbmntltYPD_a4&_nc_zt=14&_nc_ht=scontent.fala3-2.fna&_nc_gid=exLTHSRumF_ad1OxQirFuQ&oh=00_AfXBM6CDjITpUJyT2qdQEIO2ge2TMlRbQkrL0mxpYs_a8Q&oe=689ABC2C'
+export const loginBanner =
+  'https://scontent.fala11-1.fna.fbcdn.net/v/t39.8562-6/474725753_1358504298471525_8447910813089343782_n.png?_nc_cat=106&ccb=1-7&_nc_sid=f537c7&_nc_ohc=546v-sTxqW8Q7kNvwGGnQYH&_nc_oc=AdnAo62vI5hKkZ-O40VM96pFtg88VX0hUPbIkNks0d3U3U65GJUhVI1E0TceGKmfyJQ&_nc_zt=14&_nc_ht=scontent.fala11-1.fna&_nc_gid=sRCh_5TELpQkzJr09kFn1Q&oh=00_AfW4diimlMGHQLIIY-Xh1vtv_BMmuPbM07473gPuvMRYrQ&oe=6896D556'
