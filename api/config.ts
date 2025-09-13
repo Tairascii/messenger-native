@@ -14,8 +14,8 @@ const axiosConfig: AxiosInstance = axios.create({
   },
 })
 // change to in memory storing
-axiosConfig.interceptors.request.use(async (config) => {
-  const accessToken = await SecureStore.getItemAsync(accessTokenCookieKey)
+axiosConfig.interceptors.request.use((config) => {
+  const accessToken = SecureStore.getItem(accessTokenCookieKey)
 
   if (accessToken) {
     // eslint-disable-next-line no-param-reassign

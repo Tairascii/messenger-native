@@ -3,6 +3,7 @@ import { ThemedText } from '@/components/themed-text'
 import { ThemedView } from '@/components/themed-view'
 import { Image } from 'expo-image'
 import { useState } from 'react'
+import * as SecureStore from 'expo-secure-store'
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -11,18 +12,22 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from 'react-native'
+import { accessTokenCookieKey, refreshTokeCookieKey } from '@/constants/keys'
+import { useRouter } from "expo-router";
+import { URLEnum } from '@/enums/url'
 
 export default function Login() {
+  const router = useRouter()
   const [form, setForm] = useState({ email: '', password: '' })
 
   const onLogInClick = async () => {
     const { email, password } = form
     if (!email || !password) return
     const tokens = await signIn({ email, password })
-    // setCookie(accessTokenCookieKey, tokens.accessToken)
-    // setCookie(refreshTokeCookieKey, tokens.refreshToken)
+    SecureStore.setItem(accessTokenCookieKey, tokens.accessToken)
+    SecureStore.setItem(refreshTokeCookieKey, tokens.refreshToken)
 
-    // router.push(URLEnum.CHATS)
+    router.push(URLEnum.HOME)
   }
 
   return (
