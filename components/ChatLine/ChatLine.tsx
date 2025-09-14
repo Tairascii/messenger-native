@@ -1,5 +1,7 @@
 import { Chat } from '@/domain/chat'
 import { URLEnum } from '@/enums/url'
+import { useUserStore } from '@/stores/user'
+import { messageTime } from '@/utils/messageTime'
 import { Image } from 'expo-image'
 import { useRouter } from 'expo-router'
 import { Pressable, StyleSheet } from 'react-native'
@@ -10,6 +12,7 @@ interface ChatLineProps {
   chat: Chat
 }
 const ChatLine = ({ chat }: ChatLineProps) => {
+  const { profile } = useUserStore()
   const router = useRouter()
   const onChatSelect = () => {
     router.push(`${URLEnum.CHAT}/${chat.id}`)
@@ -17,10 +20,17 @@ const ChatLine = ({ chat }: ChatLineProps) => {
 
   const hasLastMessage = !!chat.lastMessage
   const getLastMessageText = (): string => {
-    if (hasLastMessage) {
-      return `${chat.lastMessage?.text} · ${chat.lastMessage?.createdAt}`
+    if (!hasLastMessage) {
+      return `no messages yet`
     }
-    return `no messages yet`
+    let text = ''
+    if (chat.lastMessage?.senderID === profile.id) {
+      text += `You: `
+    }
+    return (
+      text +
+      `${chat.lastMessage?.text} · ${messageTime(chat.lastMessage?.createdAt)}`
+    )
   }
 
   const getChatPicture = (): string => {

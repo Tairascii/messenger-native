@@ -1,4 +1,4 @@
 export enum ApiServiceEnum {
-  User = 'http://localhost:8082/',
-  Chats = 'http://localhost:8081/',
+  User = 'http://localhost:8083/',
+  Chats = 'http://localhost:8082/',
 }

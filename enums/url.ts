@@ -1,4 +1,5 @@
 export enum URLEnum {
   CHATS = '/(tabs)/chats',
-  CHAT = '/t'
+  CHAT = '/t',
+  LOGIN = `/(auth)/login`
 }

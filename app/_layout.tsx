@@ -7,6 +7,8 @@ import { Stack } from 'expo-router'
 import 'react-native-reanimated'
 
 import { useColorScheme } from '@/hooks/use-color-scheme'
+import { useUserStore } from '@/stores/user'
+import { useEffect } from 'react'
 
 export const unstable_settings = {
   anchor: '(auth)',
@@ -14,6 +16,11 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme()
+  const { getProfile } = useUserStore()
+
+  useEffect(() => {
+    getProfile()
+  }, [getProfile])
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>

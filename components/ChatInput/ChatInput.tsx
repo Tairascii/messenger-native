@@ -1,10 +1,13 @@
 import Ionicons from '@expo/vector-icons/Ionicons'
-import { useState } from 'react'
-import { StyleSheet, TextInput } from 'react-native'
+import { Pressable, StyleSheet, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const ChatInput = () => {
-  const [message, setMessage] = useState('')
+interface ChatInput {
+  message: string
+  setMessage: (msg: string) => void
+  onSend: () => void
+}
+const ChatInput = ({ message, setMessage, onSend }: ChatInput) => {
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <TextInput
@@ -14,7 +17,9 @@ const ChatInput = () => {
         value={message}
         placeholderTextColor="#61666A"
       />
-      <Ionicons name="send" size={24} color="#4E47F7" />
+      <Pressable onPress={onSend}>
+        <Ionicons name="send" size={24} color="#4E47F7" />
+      </Pressable>
     </SafeAreaView>
   )
 }

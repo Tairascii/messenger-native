@@ -2,17 +2,21 @@ import { ScrollView, StyleSheet } from 'react-native'
 
 import ChatLine from '@/components/ChatLine/ChatLine'
 import { Chat } from '@/domain/chat'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getChats } from '@/api/chats/getChats'
 
 export default function ChatsScreen() {
-  const [chats, setChats] = useState<Chat[]>([
-    {
-      id: '1',
-      picture: '',
-      title: 'some',
-      lastMessage: null,
-    },
-  ])
+  const [chats, setChats] = useState<Chat[]>([])
+
+  useEffect(() => {
+    const get = async () => {
+      const chats = await getChats()
+      setChats(chats)
+    }
+
+    get()
+  }, [])
+  
   return (
     <ScrollView style={styles.container}>
       {chats.map((chat) => {

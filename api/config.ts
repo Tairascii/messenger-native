@@ -1,8 +1,9 @@
 //TODO uncomment after user service ready
 import { accessTokenCookieKey } from '@/constants/keys'
+import { URLEnum } from '@/enums/url'
 import axios, { AxiosInstance } from 'axios'
+import { router } from 'expo-router'
 import * as SecureStore from 'expo-secure-store'
-
 // import { refreshToken } from "@/api/auth";
 
 // const refreshTokenUrl = '/v1/auth/refresh'
@@ -39,9 +40,8 @@ axiosConfig.interceptors.response.use(
       //   axiosConfig.defaults.headers.common.Authorization = `Bearer ${newAccessToken.accessToken}`;
       //   return axiosConfig(originalRequest);
       // }
-      // cookie.remove("accessToken");
-      // cookie.remove("refreshToken");
-      // cookie.remove("role");
+      // SecureStore.deleteItemAsync(accessTokenCookieKey);
+      router.replace(URLEnum.LOGIN)
     }
     return Promise.reject(err)
   }

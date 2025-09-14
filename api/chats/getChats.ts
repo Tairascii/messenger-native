@@ -1,8 +1,8 @@
-import { getApiPath } from '@/utils/getAPIPath'
-import { ApiVersionEnum } from '@/enums/apiVersion'
-import axiosConfig from '../config'
+import { Chat } from '@/domain/chat'
 import { ApiServiceEnum } from '@/enums/apiService'
-import { Chat } from '@/domain/chats'
+import { ApiVersionEnum } from '@/enums/apiVersion'
+import { getApiPath } from '@/utils/getAPIPath'
+import axiosConfig from '../config'
 
 export const getChats = async (): Promise<Chat[]> => {
   const response = await axiosConfig({
@@ -13,6 +13,5 @@ export const getChats = async (): Promise<Chat[]> => {
     }),
     method: 'GET',
   })
-
-  return response.data
+  return response.data.chats
 }

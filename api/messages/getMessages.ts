@@ -1,18 +1,18 @@
+import { Message } from '@/domain/message'
+import axiosConfig from '../config'
 import { getApiPath } from '@/utils/getAPIPath'
 import { ApiVersionEnum } from '@/enums/apiVersion'
-import axiosConfig from '../config'
 import { ApiServiceEnum } from '@/enums/apiService'
-import { User } from '@/domain/user'
 
-export const getProfile = async (): Promise<User> => {
+export const getMessages = async (chatID: string): Promise<Message[]> => {
   const response = await axiosConfig({
     url: getApiPath({
       version: ApiVersionEnum.V1,
-      service: ApiServiceEnum.User,
-      path: '/profile',
+      service: ApiServiceEnum.Chats,
+      path: `/messages/${chatID}`,
     }),
     method: 'GET',
   })
 
-  return response.data
+  return response.data.messages
 }
