@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     gap: 14,
     paddingLeft: 16,
+    paddingBottom: 10,
   },
   user: {
     flexDirection: 'row',
