@@ -27,7 +27,7 @@ export default function Login() {
     SecureStore.setItem(accessTokenCookieKey, tokens.accessToken)
     SecureStore.setItem(refreshTokeCookieKey, tokens.refreshToken)
 
-    router.push(URLEnum.HOME)
+    router.push(URLEnum.CHATS)
   }
 
   return (
